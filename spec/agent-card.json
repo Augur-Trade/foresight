@@ -634,7 +634,7 @@
     "web"
    ],
    "examples": [
-    "{\"url\":\"https://augur-trade.com/hub\"}"
+    "{\"url\":\"https://www.wikipedia.org\"}"
    ]
   },
   {
@@ -662,7 +662,7 @@
     "web"
    ],
    "examples": [
-    "{\"domain\":\"augur-trade.com\"}"
+    "{\"domain\":\"wikipedia.org\"}"
    ]
   },
   {
@@ -946,7 +946,7 @@
     "util"
    ],
    "examples": [
-    "{\"text\":\"https://augur-trade.com/hub\",\"format\":\"svg\",\"size\":256}"
+    "{\"text\":\"https://example.com\",\"format\":\"svg\",\"size\":256}"
    ]
   },
   {
@@ -970,7 +970,7 @@
     "util"
    ],
    "examples": [
-    "{\"data\":{\"name\":\"A.L.F\",\"age\":-1,\"email\":\"nope\"},\"schema\":{\"type\":\"object\",\"required\":[\"name\",\"age\"],\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\",\"minimum\":0},\"email\":{\"type\":\"string\",\"format\":\"email\"}}}}"
+    "{\"data\":{\"name\":\"Ada\",\"age\":-1,\"email\":\"nope\"},\"schema\":{\"type\":\"object\",\"required\":[\"name\",\"age\"],\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\",\"minimum\":0},\"email\":{\"type\":\"string\",\"format\":\"email\"}}}}"
    ]
   },
   {
@@ -1054,7 +1054,7 @@
     "util"
    ],
    "examples": [
-    "{\"text\":\"A.L.F runs A.U.G.U.R Synapse at https://augur-trade.com/hub. Ask it anything. #solana\"}"
+    "{\"text\":\"Solana processed 3,000 transactions a second today. Read more at https://example.com — or ask @someone. #solana\"}"
    ]
   },
   {

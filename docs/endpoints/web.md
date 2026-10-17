@@ -126,24 +126,24 @@ Use to build link previews, check SEO/social cards, find a site's feeds or struc
 curl -s -X POST https://augur-trade.com/hub/api/v1/tools/web_meta \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer hk_YOUR_CREDIT_KEY' \
-  -d '{"url": "https://augur-trade.com/hub"}'
+  -d '{"url": "https://www.wikipedia.org"}'
 ```
 
 ```js
 import { Synapse } from './sdk/js/augur-synapse.mjs';
 const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
-const { data } = await synapse.webMeta({"url": "https://augur-trade.com/hub"});
+const { data } = await synapse.webMeta({"url": "https://www.wikipedia.org"});
 ```
 
 ```python
 import os
 from augur_synapse import Synapse
 synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
-data = synapse.web_meta(url='https://augur-trade.com/hub')['data']
+data = synapse.web_meta(url='https://www.wikipedia.org')['data']
 ```
 
 ```json
-{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "web_meta", "arguments": {"url": "https://augur-trade.com/hub"}}}
+{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "web_meta", "arguments": {"url": "https://www.wikipedia.org"}}}
 ```
 
 </details>
@@ -154,57 +154,44 @@ data = synapse.web_meta(url='https://augur-trade.com/hub')['data']
 {
  "ok": true,
  "tool": "web_meta",
- "ms": 57,
+ "ms": 137,
  "billing": {
   "mode": "credits",
   "usd": 0.001
  },
  "data": {
-  "url": "https://augur-trade.com/hub/",
+  "url": "https://www.wikipedia.org/",
   "status": 200,
-  "title": "A.U.G.U.R Synapse — the tool exchange for AI agents",
-  "description": "A tool exchange run by an AI, for AI agents. 79 tools over MCP or HTTP — crypto and DeFi on every chain, pump.fun live tape and smart money, token and…",
-  "canonical": "https://augur-trade.com/hub/",
+  "title": "Wikipedia",
+  "description": "Wikipedia is a free online encyclopedia, created and edited by volunteers around the world and hosted by the Wikimedia Foundation.",
+  "canonical": null,
   "lang": "en",
-  "favicon": "https://augur-trade.com/favicon.ico",
-  "apple_touch_icon": "https://augur-trade.com/apple-touch-icon.png",
-  "manifest": "https://augur-trade.com/site.webmanifest",
-  "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+  "favicon": "https://www.wikipedia.org/static/favicon/wikipedia.ico",
+  "apple_touch_icon": "https://www.wikipedia.org/static/apple-touch/wikipedia.png",
+  "manifest": null,
+  "robots": null,
   "opengraph": {
+   "og:url": "",
+   "og:title": "Wikipedia, the free encyclopedia",
    "og:type": "website",
-   "og:site_name": "A.U.G.U.R",
-   "og:locale": "en_US",
-   "og:url": "https://augur-trade.com/hub/",
-   "og:title": "A.U.G.U.R Synapse — the tool exchange for AI agents",
-   "og:description": "A tool exchange run by an AI, for AI agents. 79 tools over MCP or HTTP — crypto and DeFi on every chain, pump.fun live tape and smart money, token and…",
-   "og:image:alt": "A.U.G.U.R Synapse — the tool exchange for AI agents",
-   "og:image": "https://augur-trade.com/og/hub.jpg?v=91368125de",
-   "og:image:width": "1200",
-   "og:image:height": "630"
+   "og:description": "Wikipedia is a free online encyclopedia, created and edited by volunteers around the world and hosted by the Wikimedia Foundation.",
+   "og:image": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/250px-Wikipedia-logo-v2.svg.png"
   },
-  "twitter": {
-   "twitter:title": "A.U.G.U.R Synapse — the tool exchange for AI agents",
-   "twitter:description": "A tool exchange run by an AI, for AI agents. 79 tools over MCP or HTTP — crypto and DeFi on every chain, pump.fun live tape and smart money, token and…",
-   "twitter:image": "https://augur-trade.com/og/hub.jpg?v=91368125de",
-   "twitter:card": "summary_large_image"
-  },
+  "twitter": {},
   "feeds": [],
-  "json_ld_types": [
-   "WebPage",
-   "WebAPI",
-   "BreadcrumbList",
-   "… 2 more"
-  ],
+  "json_ld_types": [],
   "h1": [
-   "The nervous systemfor autonomous agents."
+   "Wikipedia\n\nThe Free Encyclopedia"
   ],
   "h2": [
-   "Nine lobes. Sixteen tools.",
-   "Plug in with one line.",
-   "Money that moves at machine speed.",
-   "… 3 more"
+   "1,000,000+\n\n\narticles",
+   "100,000+\n\n\narticles",
+   "10,000+\n\n\narticles",
+   "… 2 more"
   ],
-  "link_preview_problems": []
+  "link_preview_problems": [
+   "no twitter:card (X shows a small or no preview)"
+  ]
  }
 }
 ```
@@ -362,24 +349,24 @@ Uses RDAP, the registries' official successor to WHOIS (rdap.org bootstrap). A d
 curl -s -X POST https://augur-trade.com/hub/api/v1/tools/domain_whois \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer hk_YOUR_CREDIT_KEY' \
-  -d '{"domain": "augur-trade.com"}'
+  -d '{"domain": "wikipedia.org"}'
 ```
 
 ```js
 import { Synapse } from './sdk/js/augur-synapse.mjs';
 const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
-const { data } = await synapse.domainWhois({"domain": "augur-trade.com"});
+const { data } = await synapse.domainWhois({"domain": "wikipedia.org"});
 ```
 
 ```python
 import os
 from augur_synapse import Synapse
 synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
-data = synapse.domain_whois(domain='augur-trade.com')['data']
+data = synapse.domain_whois(domain='wikipedia.org')['data']
 ```
 
 ```json
-{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "domain_whois", "arguments": {"domain": "augur-trade.com"}}}
+{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "domain_whois", "arguments": {"domain": "wikipedia.org"}}}
 ```
 
 </details>
@@ -390,30 +377,33 @@ data = synapse.domain_whois(domain='augur-trade.com')['data']
 {
  "ok": true,
  "tool": "domain_whois",
- "ms": 402,
+ "ms": 184,
  "billing": {
   "mode": "credits",
   "usd": 0.002
  },
  "data": {
-  "domain": "augur-trade.com",
+  "domain": "wikipedia.org",
   "registered": true,
   "registrar": {
-   "name": "Global Domain Group LLC",
-   "iana_id": "3956"
+   "name": "MarkMonitor Inc.",
+   "iana_id": "292"
   },
-  "created": "2026-10-16T09:59:40Z",
-  "updated": "2026-10-16T10:00:01Z",
-  "expires": "2027-10-16T09:59:40Z",
-  "age_days": 0,
-  "days_to_expiry": 364,
-  "young_domain_warning": true,
+  "created": "2001-01-13T00:12:14.754Z",
+  "updated": "2026-08-12T08:47:19.41Z",
+  "expires": "2027-01-13T00:12:14Z",
+  "age_days": 9408,
+  "days_to_expiry": 87,
+  "young_domain_warning": false,
   "status": [
-   "client transfer prohibited"
+   "client delete prohibited",
+   "client transfer prohibited",
+   "client update prohibited"
   ],
   "nameservers": [
-   "ns3.namefi.io",
-   "ns4.namefi.io"
+   "ns0.wikimedia.org",
+   "ns1.wikimedia.org",
+   "ns2.wikimedia.org"
   ],
   "dnssec": false,
   "registrant": null,

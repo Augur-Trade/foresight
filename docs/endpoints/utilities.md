@@ -52,24 +52,24 @@ Rendered on our server. For Wi-Fi pass wifi_ssid + wifi_password; for Solana Pay
 ```bash
 curl -s -X POST https://augur-trade.com/hub/api/v1/tools/qr_code \
   -H 'Content-Type: application/json' \
-  -d '{"text": "https://augur-trade.com/hub", "format": "svg", "size": 256}'
+  -d '{"text": "https://example.com", "format": "svg", "size": 256}'
 ```
 
 ```js
 import { Synapse } from './sdk/js/augur-synapse.mjs';
 const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
-const { data } = await synapse.qrCode({"text": "https://augur-trade.com/hub", "format": "svg", "size": 256});
+const { data } = await synapse.qrCode({"text": "https://example.com", "format": "svg", "size": 256});
 ```
 
 ```python
 import os
 from augur_synapse import Synapse
 synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
-data = synapse.qr_code(text='https://augur-trade.com/hub', format='svg', size=256)['data']
+data = synapse.qr_code(text='https://example.com', format='svg', size=256)['data']
 ```
 
 ```json
-{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "qr_code", "arguments": {"text": "https://augur-trade.com/hub", "format": "svg", "size": 256}}}
+{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "qr_code", "arguments": {"text": "https://example.com", "format": "svg", "size": 256}}}
 ```
 
 </details>
@@ -80,15 +80,15 @@ data = synapse.qr_code(text='https://augur-trade.com/hub', format='svg', size=25
 {
  "ok": true,
  "tool": "qr_code",
- "ms": 13,
+ "ms": 12,
  "billing": {
   "mode": "free",
   "usd": 0
  },
  "data": {
   "format": "svg",
-  "encoded": "https://augur-trade.com/hub",
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"0 0 33 33\" shape-rendering=\"crispEdges\"><path fill=\"#ffffff\" d=\"M0 0h33v33H0z\"/><path stroke=\"#000000\" d=\"M2 2.5h7m1 0h1m1 0h2m3 0h6m1 0h7M2 3.5h1m5 0h1m1 0h1m1 0h1m1 0h1m1 0h2m1 0h2m3 0h1m5 0h1M2 4.5h1m1 0…"
+  "encoded": "https://example.com",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"0 0 29 29\" shape-rendering=\"crispEdges\"><path fill=\"#ffffff\" d=\"M0 0h29v29H0z\"/><path stroke=\"#000000\" d=\"M2 2.5h7m4 0h3m2 0h1m1 0h7M2 3.5h1m5 0h1m3 0h1m2 0h4m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0…"
  }
 }
 ```
@@ -207,24 +207,24 @@ Ajv, strict about types, all errors reported. Pass data and schema as JSON value
 ```bash
 curl -s -X POST https://augur-trade.com/hub/api/v1/tools/json_schema_validate \
   -H 'Content-Type: application/json' \
-  -d '{"data": {"name": "A.L.F", "age": -1, "email": "nope"}, "schema": {"type": "object", "required": ["name", "age"], "properties": {"name": {"type": "string"}, "age": {"type": "integer", "minimum": 0}, "email": {"type": "string", "format": "email"}}}}'
+  -d '{"data": {"name": "Ada", "age": -1, "email": "nope"}, "schema": {"type": "object", "required": ["name", "age"], "properties": {"name": {"type": "string"}, "age": {"type": "integer", "minimum": 0}, "email": {"type": "string", "format": "email"}}}}'
 ```
 
 ```js
 import { Synapse } from './sdk/js/augur-synapse.mjs';
 const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
-const { data } = await synapse.jsonSchemaValidate({"data": {"name": "A.L.F", "age": -1, "email": "nope"}, "schema": {"type": "object", "required": ["name", "age"], "properties": {"name": {"type": "string"}, "age": {"type": "integer", "minimum": 0}, "email": {"type": "string", "format": "email"}}}});
+const { data } = await synapse.jsonSchemaValidate({"data": {"name": "Ada", "age": -1, "email": "nope"}, "schema": {"type": "object", "required": ["name", "age"], "properties": {"name": {"type": "string"}, "age": {"type": "integer", "minimum": 0}, "email": {"type": "string", "format": "email"}}}});
 ```
 
 ```python
 import os
 from augur_synapse import Synapse
 synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
-data = synapse.json_schema_validate(data={'name': 'A.L.F', 'age': -1, 'email': 'nope'}, schema={'type': 'object', 'required': ['name', 'age'], 'properties': {'name': {'type': 'string'}, 'age': {'type': 'integer', 'minimum': 0}, 'email': {'type': 'string', 'format': 'email'}}})['data']
+data = synapse.json_schema_validate(data={'name': 'Ada', 'age': -1, 'email': 'nope'}, schema={'type': 'object', 'required': ['name', 'age'], 'properties': {'name': {'type': 'string'}, 'age': {'type': 'integer', 'minimum': 0}, 'email': {'type': 'string', 'format': 'email'}}})['data']
 ```
 
 ```json
-{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "json_schema_validate", "arguments": {"data": {"name": "A.L.F", "age": -1, "email": "nope"}, "schema": {"type": "object", "required": ["name", "age"], "properties": {"name": {"type": "string"}, "age": {"type": "integer", "minimum": 0}, "email": {"type": "string", "format": "email"}}}}}}
+{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "json_schema_validate", "arguments": {"data": {"name": "Ada", "age": -1, "email": "nope"}, "schema": {"type": "object", "required": ["name", "age"], "properties": {"name": {"type": "string"}, "age": {"type": "integer", "minimum": 0}, "email": {"type": "string", "format": "email"}}}}}}
 ```
 
 </details>
@@ -235,7 +235,7 @@ data = synapse.json_schema_validate(data={'name': 'A.L.F', 'age': -1, 'email': '
 {
  "ok": true,
  "tool": "json_schema_validate",
- "ms": 36,
+ "ms": 49,
  "billing": {
   "mode": "free",
   "usd": 0
@@ -777,24 +777,24 @@ Token count is an estimate (~4 characters per token for English; code and non-La
 ```bash
 curl -s -X POST https://augur-trade.com/hub/api/v1/tools/text_stats \
   -H 'Content-Type: application/json' \
-  -d '{"text": "A.L.F runs A.U.G.U.R Synapse at https://augur-trade.com/hub. Ask it anything. #solana"}'
+  -d '{"text": "Solana processed 3,000 transactions a second today. Read more at https://example.com — or ask @someone. #solana"}'
 ```
 
 ```js
 import { Synapse } from './sdk/js/augur-synapse.mjs';
 const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
-const { data } = await synapse.textStats({"text": "A.L.F runs A.U.G.U.R Synapse at https://augur-trade.com/hub. Ask it anything. #solana"});
+const { data } = await synapse.textStats({"text": "Solana processed 3,000 transactions a second today. Read more at https://example.com — or ask @someone. #solana"});
 ```
 
 ```python
 import os
 from augur_synapse import Synapse
 synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
-data = synapse.text_stats(text='A.L.F runs A.U.G.U.R Synapse at https://augur-trade.com/hub. Ask it anything. #solana')['data']
+data = synapse.text_stats(text='Solana processed 3,000 transactions a second today. Read more at https://example.com — or ask @someone. #solana')['data']
 ```
 
 ```json
-{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "text_stats", "arguments": {"text": "A.L.F runs A.U.G.U.R Synapse at https://augur-trade.com/hub. Ask it anything. #solana"}}}
+{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "text_stats", "arguments": {"text": "Solana processed 3,000 transactions a second today. Read more at https://example.com — or ask @someone. #solana"}}}
 ```
 
 </details>
@@ -811,26 +811,30 @@ data = synapse.text_stats(text='A.L.F runs A.U.G.U.R Synapse at https://augur-tr
   "usd": 0
  },
  "data": {
-  "characters": 85,
-  "characters_no_spaces": 76,
-  "words": 19,
+  "characters": 111,
+  "characters_no_spaces": 96,
+  "words": 18,
   "sentences": 3,
   "lines": 1,
   "paragraphs": 1,
-  "estimated_tokens": 22,
+  "estimated_tokens": 28,
   "reading_minutes": 0.1,
-  "flesch_reading_ease": 84.6,
-  "readability": "easy",
+  "flesch_reading_ease": 59.7,
+  "readability": "fairly difficult",
   "extracted": {
    "urls": [
-    "https://augur-trade.com/hub."
+    "https://example.com"
    ],
    "emails": [],
-   "handles": [],
+   "handles": [
+    "@someone"
+   ],
    "hashtags": [
     "#solana"
    ],
-   "numbers": [],
+   "numbers": [
+    "3,000"
+   ],
    "evm_addresses": [],
    "solana_addresses": []
   }

@@ -3089,7 +3089,7 @@
         "additionalProperties": false
        },
        "example": {
-        "url": "https://augur-trade.com/hub"
+        "url": "https://www.wikipedia.org"
        }
       }
      }
@@ -3202,7 +3202,7 @@
         "additionalProperties": false
        },
        "example": {
-        "domain": "augur-trade.com"
+        "domain": "wikipedia.org"
        }
       }
      }
@@ -4772,7 +4772,7 @@
         "additionalProperties": false
        },
        "example": {
-        "text": "https://augur-trade.com/hub",
+        "text": "https://example.com",
         "format": "svg",
         "size": 256
        }
@@ -4902,7 +4902,7 @@
        },
        "example": {
         "data": {
-         "name": "A.L.F",
+         "name": "Ada",
          "age": -1,
          "email": "nope"
         },
@@ -5344,7 +5344,7 @@
         "additionalProperties": false
        },
        "example": {
-        "text": "A.L.F runs A.U.G.U.R Synapse at https://augur-trade.com/hub. Ask it anything. #solana"
+        "text": "Solana processed 3,000 transactions a second today. Read more at https://example.com — or ask @someone. #solana"
        }
       }
      }
