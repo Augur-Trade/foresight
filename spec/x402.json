@@ -1,0 +1,1776 @@
+{
+ "x402Version": 1,
+ "provider": "A.U.G.U.R Synapse",
+ "payTo": "RfmsJN8mYvE5Ggjc4yE8i3w5deZEUgRie6W6xehif6R",
+ "payTo_base": "0x538d1D8257C6001d7e432c90C6abc658948d7441",
+ "facilitator": {
+  "solana": "self",
+  "base": "https://facilitator.payai.network"
+ },
+ "resources": [
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/pump_launches",
+   "method": "POST",
+   "description": "The newest pump.fun tokens with dev buy, early buyers/volume, curve progress, market cap and creator launch count.",
+   "price_usd": 0.002,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 20,
+      "description": "How many of the newest launches to return. Range 1-50. Default 20."
+     },
+     "window_s": {
+      "type": "integer",
+      "minimum": 30,
+      "maximum": 3600,
+      "default": 300,
+      "description": "early-flow window after creation. Range 30-3600. Default 300."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/pump_token",
+   "method": "POST",
+   "description": "Full bonding-curve forensics for one pump.fun mint: flow, dev buys/sells, launch snipers, top curve holders, peak, graduation, red flags.",
+   "price_usd": 0.01,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "mint"
+    ],
+    "properties": {
+     "mint": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "description": "pump.fun token mint. Base58 Solana address, 32-44 chars."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/pump_wallet",
+   "method": "POST",
+   "description": "Any wallet's pump.fun trading record: realized PnL, win rate, hold time, frequency (bot or human), tokens it launched.",
+   "price_usd": 0.01,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "wallet"
+    ],
+    "properties": {
+     "wallet": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "description": "wallet address. Base58 Solana address, 32-44 chars."
+     },
+     "limit": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 20000,
+      "default": 20000,
+      "description": "How many of the wallet's most recent recorded trades to analyse. Range 100-20000. Default 20000."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/pump_dev",
+   "method": "POST",
+   "description": "A creator wallet's launch history: launches, graduation rate, launch cadence, how fast the dev sells, verdict.",
+   "price_usd": 0.01,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "creator"
+    ],
+    "properties": {
+     "creator": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "description": "creator (dev) wallet. Base58 Solana address, 32-44 chars."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/pump_odds",
+   "method": "POST",
+   "description": "Probability a pump.fun launch graduates, from how comparable launches in our tape actually ended — with the lift over the ~3% base rate.",
+   "price_usd": 0.01,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "mint"
+    ],
+    "properties": {
+     "mint": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "description": "pump.fun token mint. Base58 Solana address, 32-44 chars."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/smart_money",
+   "method": "POST",
+   "description": "The pump.fun wallets with the best realized PnL in the last 24 h — and the tokens those wallets are buying right now.",
+   "price_usd": 0.02,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 20,
+      "description": "How many top wallets to return. Range 1-50. Default 20."
+     },
+     "window_min": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 120,
+      "default": 15,
+      "description": "look-back for buying_now. Range 1-120. Default 15."
+     },
+     "sort": {
+      "type": "string",
+      "pattern": "^(pnl|win_rate|roi)$",
+      "default": "pnl",
+      "description": "Rank by realized PnL in SOL (\"pnl\"), win rate (\"win_rate\") or return on SOL spent (\"roi\"). Default \"pnl\"."
+     },
+     "exclude_bots": {
+      "type": "boolean",
+      "default": false,
+      "description": "drop sub-20-second and high-frequency wallets. Default false."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/copy_backtest",
+   "method": "POST",
+   "description": "Would copying this wallet have made money? Replays its pump.fun entries and exits 0–25 slots late on the recorded curve and shows where the edge dies.",
+   "price_usd": 0.03,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "wallet"
+    ],
+    "properties": {
+     "wallet": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "description": "leader wallet to copy. Base58 Solana address, 32-44 chars."
+     },
+     "days": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 14,
+      "default": 3,
+      "description": "How many days of the wallet's history to replay. Range 1-14. Default 3."
+     },
+     "size_sol": {
+      "type": "number",
+      "minimum": 0.01,
+      "maximum": 10,
+      "default": 0.1,
+      "description": "SOL per copied entry. Range 0.01-10. Default 0.1."
+     },
+     "exit": {
+      "type": "string",
+      "pattern": "^(first_sell|full_exit)$",
+      "default": "first_sell",
+      "description": "sell on the leader's first sell, or once it has sold 90%. Default \"first_sell\"."
+     },
+     "max_positions": {
+      "type": "integer",
+      "minimum": 10,
+      "maximum": 300,
+      "default": 150,
+      "description": "most recent positions to replay. Range 10-300. Default 150."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/token_risk",
+   "method": "POST",
+   "description": "0-100 rug-risk score for any Solana token: mint/freeze authority, Token-2022 traps, holder concentration, liquidity depth — plus pump.fun curve flags.",
+   "price_usd": 0.005,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "mint"
+    ],
+    "properties": {
+     "mint": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "description": "token mint. Base58 Solana address, 32-44 chars."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/launch_scan",
+   "method": "POST",
+   "description": "One call, one verdict on a pump.fun launch: 0-100 score with positives and risks, graduation odds, dev record, snipers, holders, flow.",
+   "price_usd": 0.025,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "mint"
+    ],
+    "properties": {
+     "mint": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "description": "pump.fun token mint. Base58 Solana address, 32-44 chars."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/counterparty_check",
+   "method": "POST",
+   "description": "One-call verdict on a Solana wallet before you deal with it: serial token launcher, fast dumper, trading bot, or clean.",
+   "price_usd": 0.005,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "wallet"
+    ],
+    "properties": {
+     "wallet": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "description": "wallet address. Base58 Solana address, 32-44 chars."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/wallet_holdings",
+   "method": "POST",
+   "description": "Everything a Solana wallet holds — SOL, SPL and Token-2022 tokens — valued in USD and sorted by value.",
+   "price_usd": 0.003,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "wallet"
+    ],
+    "properties": {
+     "wallet": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "description": "wallet address. Base58 Solana address, 32-44 chars."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/tx_explain",
+   "method": "POST",
+   "description": "Turns any Solana transaction signature into plain facts: status, fee, programs by name, SOL and token balance changes per owner, a one-line summary.",
+   "price_usd": 0.003,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "signature"
+    ],
+    "properties": {
+     "signature": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{64,90}$",
+      "description": "Solana transaction signature (base58, 64-90 chars)."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/dlmm_pool",
+   "method": "POST",
+   "description": "State of a Meteora DLMM pool: price, bin step, fees, TVL, volume and fees by window (30 m–24 h), 24 h fee yield and its annualized APR/APY.",
+   "price_usd": 0.002,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "pool"
+    ],
+    "properties": {
+     "pool": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "description": "DLMM pool (pair) address. Base58 Solana address, 32-44 chars."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/dlmm_positions",
+   "method": "POST",
+   "description": "Open Meteora DLMM positions of any wallet: value, unclaimed fees, PnL, in/out of range — or its closed-position history.",
+   "price_usd": 0.005,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "wallet"
+    ],
+    "properties": {
+     "wallet": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "description": "wallet address. Base58 Solana address, 32-44 chars."
+     },
+     "history": {
+      "type": "boolean",
+      "default": false,
+      "description": "true = closed-position history instead of open positions. Default false."
+     },
+     "page": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 1,
+      "description": "Page of closed-position history (only with history=true). Range 1-50. Default 1."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/dlmm_whales",
+   "method": "POST",
+   "description": "Meteora DLMM liquidity providers ranked by measured on-chain edge: net USD, median multiple, win rate, hold time, size, recency.",
+   "price_usd": 0.02,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 25,
+      "default": 10,
+      "description": "How many ranked LP wallets to return. Range 1-25. Default 10."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/price_history",
+   "method": "POST",
+   "description": "Historical USD prices for any crypto asset (hourly or daily, up to 365 days) with return, high/low, max drawdown and annualized volatility.",
+   "price_usd": 0.002,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "asset"
+    ],
+    "properties": {
+     "asset": {
+      "type": "string",
+      "description": "symbol, CoinGecko id, chain:address or address"
+     },
+     "days": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 365,
+      "default": 30,
+      "description": "How many days back; hourly points up to 90 days, daily beyond. Range 1-365. Default 30."
+     },
+     "interval": {
+      "type": "string",
+      "enum": [
+       "hour",
+       "day"
+      ],
+      "default": "day",
+      "description": "hourly allowed up to 30 days. One of \"hour\", \"day\". Default \"day\"."
+     },
+     "chain": {
+      "type": "string",
+      "enum": [
+       "ethereum",
+       "base",
+       "arbitrum",
+       "optimism",
+       "polygon",
+       "bsc",
+       "avalanche",
+       "linea",
+       "blast",
+       "scroll",
+       "gnosis",
+       "sonic",
+       "unichain",
+       "mantle",
+       "berachain",
+       "hyperevm",
+       "monad"
+      ],
+      "default": "ethereum",
+      "description": "EVM chain: ethereum, base, arbitrum, optimism, polygon, bsc, avalanche, linea, blast, scroll, gnosis, sonic, unichain, mantle, berachain, hyperevm, monad. One of \"ethereum\", \"base\", \"arbitrum\", \"optimism\", \"polygon\", \"bsc\", \"avalanche\", \"linea\", \"blast\", \"scroll\", \"gnosis\", \"sonic\", \"unichain\", \"mantle\", \"berachain\", \"hyperevm\", \"monad\". Default \"ethereum\"."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/defi_protocol",
+   "method": "POST",
+   "description": "One DeFi protocol in depth: TVL by chain, TVL trend, fees and revenue (24 h/7 d/30 d), market cap, audits, links.",
+   "price_usd": 0.002,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "protocol"
+    ],
+    "properties": {
+     "protocol": {
+      "type": "string",
+      "description": "name or slug"
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/yield_pools",
+   "method": "POST",
+   "description": "Search ~19,000 DeFi yield pools across all chains: filter by chain, protocol, token, stablecoin-only, min TVL; sort by APY or TVL. Base vs reward APY, 30 d mean, IL risk.",
+   "price_usd": 0.003,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "chain": {
+      "type": "string",
+      "description": "e.g. Ethereum, Solana, Base, Arbitrum"
+     },
+     "project": {
+      "type": "string",
+      "description": "protocol slug, e.g. aave-v3, kamino-lend, uniswap-v3"
+     },
+     "token": {
+      "type": "string",
+      "description": "token symbol that must appear in the pool, e.g. USDC, SOL"
+     },
+     "stablecoin_only": {
+      "type": "boolean",
+      "default": false,
+      "description": "true = only pools whose assets are all stablecoins. Default false."
+     },
+     "single_exposure_only": {
+      "type": "boolean",
+      "default": false,
+      "description": "no LP pairs (no impermanent loss) Default false."
+     },
+     "min_tvl_usd": {
+      "type": "number",
+      "minimum": 0,
+      "default": 1000000,
+      "description": "Skip pools with less TVL than this (USD); raises quality. Default 1000000."
+     },
+     "max_apy": {
+      "type": "number",
+      "minimum": 1,
+      "default": 1000,
+      "description": "drop absurd APYs above this. Default 1000."
+     },
+     "sort": {
+      "type": "string",
+      "enum": [
+       "apy",
+       "tvl",
+       "apy_base",
+       "apy_30d_mean"
+      ],
+      "default": "apy",
+      "description": "Rank by total APY, TVL, base (non-reward) APY or 30-day mean APY. One of \"apy\", \"tvl\", \"apy_base\", \"apy_30d_mean\". Default \"apy\"."
+     },
+     "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 20,
+      "description": "How many pools to return. Range 1-50. Default 20."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/fees_revenue",
+   "method": "POST",
+   "description": "Which protocols and chains earn the most: fees or revenue over 24 h / 7 d / 30 d, filterable by chain — the cash-flow view of crypto.",
+   "price_usd": 0.002,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "metric": {
+      "type": "string",
+      "enum": [
+       "fees",
+       "revenue"
+      ],
+      "default": "fees",
+      "description": "Gross fees paid by users, or revenue kept by the protocol. One of \"fees\", \"revenue\". Default \"fees\"."
+     },
+     "chain": {
+      "type": "string",
+      "description": "optional"
+     },
+     "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 20,
+      "description": "How many protocols to return. Range 1-50. Default 20."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/evm_token_security",
+   "method": "POST",
+   "description": "Honeypot and scam check for any ERC-20 on 15+ EVM chains: buy/sell tax, can the owner mint, pause, blacklist or change taxes, proxy, holder concentration, LP lock.",
+   "price_usd": 0.005,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "token"
+    ],
+    "properties": {
+     "token": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{40}$",
+      "description": "ERC-20 contract address (0x + 40 hex)."
+     },
+     "chain": {
+      "type": "string",
+      "enum": [
+       "ethereum",
+       "base",
+       "arbitrum",
+       "optimism",
+       "polygon",
+       "bsc",
+       "avalanche",
+       "linea",
+       "blast",
+       "scroll",
+       "gnosis",
+       "sonic",
+       "unichain",
+       "mantle",
+       "berachain",
+       "hyperevm",
+       "monad"
+      ],
+      "default": "ethereum",
+      "description": "EVM chain: ethereum, base, arbitrum, optimism, polygon, bsc, avalanche, linea, blast, scroll, gnosis, sonic, unichain, mantle, berachain, hyperevm, monad. One of \"ethereum\", \"base\", \"arbitrum\", \"optimism\", \"polygon\", \"bsc\", \"avalanche\", \"linea\", \"blast\", \"scroll\", \"gnosis\", \"sonic\", \"unichain\", \"mantle\", \"berachain\", \"hyperevm\", \"monad\". Default \"ethereum\"."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/evm_address",
+   "method": "POST",
+   "description": "Native balance (with USD), transaction count, contract or wallet, ENS name — for any address on 17 EVM chains at once or one chain.",
+   "price_usd": 0.002,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "address"
+    ],
+    "properties": {
+     "address": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{40}$",
+      "description": "EVM wallet or contract address (0x + 40 hex)."
+     },
+     "chain": {
+      "type": "string",
+      "enum": [
+       "all",
+       "ethereum",
+       "base",
+       "arbitrum",
+       "optimism",
+       "polygon",
+       "bsc",
+       "avalanche",
+       "linea",
+       "blast",
+       "scroll",
+       "gnosis",
+       "sonic",
+       "unichain",
+       "mantle",
+       "berachain",
+       "hyperevm",
+       "monad"
+      ],
+      "default": "all",
+      "description": "Chain to read, or \"all\" to check every supported chain. One of \"all\", \"ethereum\", \"base\", \"arbitrum\", \"optimism\", \"polygon\", \"bsc\", \"avalanche\", \"linea\", \"blast\", \"scroll\", \"gnosis\", \"sonic\", \"unichain\", \"mantle\", \"berachain\", \"hyperevm\", \"monad\". Default \"all\"."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/erc20_info",
+   "method": "POST",
+   "description": "Name, symbol, decimals, total supply and USD price of any ERC-20 — plus a wallet's balance of it — read on chain.",
+   "price_usd": 0.002,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "token"
+    ],
+    "properties": {
+     "token": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{40}$",
+      "description": "ERC-20 contract address (0x + 40 hex)."
+     },
+     "wallet": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{40}$",
+      "description": "optional holder. 0x + 40 hex chars."
+     },
+     "chain": {
+      "type": "string",
+      "enum": [
+       "ethereum",
+       "base",
+       "arbitrum",
+       "optimism",
+       "polygon",
+       "bsc",
+       "avalanche",
+       "linea",
+       "blast",
+       "scroll",
+       "gnosis",
+       "sonic",
+       "unichain",
+       "mantle",
+       "berachain",
+       "hyperevm",
+       "monad"
+      ],
+      "default": "ethereum",
+      "description": "EVM chain: ethereum, base, arbitrum, optimism, polygon, bsc, avalanche, linea, blast, scroll, gnosis, sonic, unichain, mantle, berachain, hyperevm, monad. One of \"ethereum\", \"base\", \"arbitrum\", \"optimism\", \"polygon\", \"bsc\", \"avalanche\", \"linea\", \"blast\", \"scroll\", \"gnosis\", \"sonic\", \"unichain\", \"mantle\", \"berachain\", \"hyperevm\", \"monad\". Default \"ethereum\"."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/evm_tx",
+   "method": "POST",
+   "description": "Any EVM transaction in plain terms: status, from/to, value, fee in native and USD, method called, every ERC-20 transfer decoded with symbols and amounts.",
+   "price_usd": 0.003,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "hash"
+    ],
+    "properties": {
+     "hash": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{64}$",
+      "description": "EVM transaction hash (0x + 64 hex)."
+     },
+     "chain": {
+      "type": "string",
+      "enum": [
+       "ethereum",
+       "base",
+       "arbitrum",
+       "optimism",
+       "polygon",
+       "bsc",
+       "avalanche",
+       "linea",
+       "blast",
+       "scroll",
+       "gnosis",
+       "sonic",
+       "unichain",
+       "mantle",
+       "berachain",
+       "hyperevm",
+       "monad"
+      ],
+      "default": "ethereum",
+      "description": "EVM chain: ethereum, base, arbitrum, optimism, polygon, bsc, avalanche, linea, blast, scroll, gnosis, sonic, unichain, mantle, berachain, hyperevm, monad. One of \"ethereum\", \"base\", \"arbitrum\", \"optimism\", \"polygon\", \"bsc\", \"avalanche\", \"linea\", \"blast\", \"scroll\", \"gnosis\", \"sonic\", \"unichain\", \"mantle\", \"berachain\", \"hyperevm\", \"monad\". Default \"ethereum\"."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/cex_ticker",
+   "method": "POST",
+   "description": "Live bid/ask/last, 24 h change, volume and range for a pair on Kraken, Coinbase and OKX side by side — with the cross-venue spread.",
+   "price_usd": 0.001,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "pair"
+    ],
+    "properties": {
+     "pair": {
+      "type": "string",
+      "description": "BTC/USD, ETH-USDT, SOL"
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/orderbook_depth",
+   "method": "POST",
+   "description": "How much size a market can take: bid/ask depth within ±0.1/0.5/1/2/5%, spread, and the slippage of a $10k/$100k/$1M market order on Kraken, Coinbase or OKX.",
+   "price_usd": 0.003,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "pair"
+    ],
+    "properties": {
+     "pair": {
+      "type": "string",
+      "description": "Market pair as BASE/QUOTE, e.g. \"BTC/USD\" or \"ETH/USDT\"."
+     },
+     "venue": {
+      "type": "string",
+      "enum": [
+       "coinbase",
+       "kraken",
+       "okx"
+      ],
+      "default": "coinbase",
+      "description": "Exchange whose order book to read. One of \"coinbase\", \"kraken\", \"okx\". Default \"coinbase\"."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/funding_rates",
+   "method": "POST",
+   "description": "Perpetual funding for a coin on Hyperliquid, OKX and Kraken Futures side by side — per-interval rate and annualized APR — plus open interest and mark price.",
+   "price_usd": 0.003,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "coin"
+    ],
+    "properties": {
+     "coin": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9]{2,12}$",
+      "description": "BTC, ETH, SOL…"
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/hyperliquid_markets",
+   "method": "POST",
+   "description": "Every Hyperliquid perpetual: mark/oracle price, 24 h change and volume, open interest, funding APR, premium — ranked by volume, OI, funding or movers.",
+   "price_usd": 0.002,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "coin": {
+      "type": "string",
+      "description": "optional, e.g. BTC"
+     },
+     "sort": {
+      "type": "string",
+      "enum": [
+       "volume",
+       "open_interest",
+       "funding",
+       "funding_negative",
+       "change"
+      ],
+      "default": "volume",
+      "description": "Rank by 24 h volume, open interest, highest or most negative funding, or 24 h change. One of \"volume\", \"open_interest\", \"funding\", \"funding_negative\", \"change\". Default \"volume\"."
+     },
+     "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 20,
+      "description": "How many markets to return. Range 1-100. Default 20."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/web_read",
+   "method": "POST",
+   "description": "Any public URL → clean readable markdown: the article/main content without nav, ads or boilerplate, plus title, author, date, word count and links. PDFs too.",
+   "price_usd": 0.002,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "url"
+    ],
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": "http(s) URL"
+     },
+     "max_chars": {
+      "type": "integer",
+      "minimum": 500,
+      "maximum": 100000,
+      "default": 20000,
+      "description": "Truncate the returned markdown to this many characters. Range 500-100000. Default 20000."
+     },
+     "include_links": {
+      "type": "boolean",
+      "default": false,
+      "description": "keep hyperlinks (absolute) in the markdown and return a link list. Default false."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/web_meta",
+   "method": "POST",
+   "description": "Everything a page says about itself: title, description, OpenGraph/Twitter card, canonical, favicon, language, RSS/Atom feeds, JSON-LD schema types, headings — and link-preview problems.",
+   "price_usd": 0.001,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "url"
+    ],
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": "Absolute http(s) URL of the page."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/domain_whois",
+   "method": "POST",
+   "description": "Who registered a domain and when: registrar, creation/expiry dates, age, days to expiry, status locks, nameservers — or that it looks available to register.",
+   "price_usd": 0.002,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "domain"
+    ],
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": "Registrable domain without scheme, e.g. \"example.com\"."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/tls_check",
+   "method": "POST",
+   "description": "A site's TLS certificate: issuer, validity, days until expiry, SANs, protocol, cipher, chain and whether browsers trust it.",
+   "price_usd": 0.001,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "host"
+    ],
+    "properties": {
+     "host": {
+      "type": "string",
+      "description": "Hostname without scheme or path, e.g. \"example.com\"."
+     },
+     "port": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 65535,
+      "default": 443,
+      "description": "TCP port serving TLS. Range 1-65535. Default 443."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/http_probe",
+   "method": "POST",
+   "description": "Is a site up and how is it served: status, full redirect chain, timings (DNS/TLS/first byte/total), server, CDN, caching, compression, and a graded security-header check (HSTS, CSP, frame, sniffing…).",
+   "price_usd": 0.001,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "url"
+    ],
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": "Absolute http(s) URL to probe."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/robots_check",
+   "method": "POST",
+   "description": "May I crawl this? Checks a URL against the site's robots.txt for any user-agent, lists sitemaps and crawl-delay, and reports which AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended…) the site blocks.",
+   "price_usd": 0.001,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "url"
+    ],
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": "Absolute URL you intend to crawl."
+     },
+     "user_agent": {
+      "type": "string",
+      "default": "augur-synapse",
+      "description": "User-agent token to evaluate the rules for. Default \"augur-synapse\"."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/email_check",
+   "method": "POST",
+   "description": "Will this email address work? Syntax, domain MX records, disposable/throwaway provider detection, role address (info@, admin@) and free-mail provider — without sending anything.",
+   "price_usd": 0.001,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "email"
+    ],
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "Email address to check. No mail is sent."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/arxiv_search",
+   "method": "POST",
+   "description": "Search arXiv research papers by keywords, author or category — newest or most relevant — with abstracts, authors, dates and PDF links.",
+   "price_usd": 0.001,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "query"
+    ],
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "e.g. \"tool use agents\" or au:hinton or cat:cs.CL AND ti:reasoning"
+     },
+     "sort": {
+      "type": "string",
+      "enum": [
+       "relevance",
+       "newest"
+      ],
+      "default": "relevance",
+      "description": "Order by relevance to the query or by submission date. One of \"relevance\", \"newest\". Default \"relevance\"."
+     },
+     "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 30,
+      "default": 10,
+      "description": "How many papers to return. Range 1-30. Default 10."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/package_info",
+   "method": "POST",
+   "description": "Any npm, PyPI or crates.io package: latest version and release date, license, downloads, maintainers, repo, dependency count, deprecation — to pick or vet a dependency.",
+   "price_usd": 0.001,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "name"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Exact package name as published, e.g. \"express\" or \"requests\"."
+     },
+     "ecosystem": {
+      "type": "string",
+      "enum": [
+       "npm",
+       "pypi",
+       "crates"
+      ],
+      "default": "npm",
+      "description": "Registry to look in. One of \"npm\", \"pypi\", \"crates\". Default \"npm\"."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/vuln_check",
+   "method": "POST",
+   "description": "Known security vulnerabilities for a package version (npm, PyPI, crates, Go, Maven, NuGet, RubyGems, Packagist) with severity, CVE/GHSA ids, and the version that fixes each.",
+   "price_usd": 0.002,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "packages": {
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+       "type": "string"
+      },
+      "description": "e.g. [\"npm:lodash@4.17.15\",\"pypi:requests@2.19.0\"]. 0-50 items."
+     },
+     "name": {
+      "type": "string",
+      "description": "Exact package name as published."
+     },
+     "version": {
+      "type": "string",
+      "description": "Exact version to check, e.g. \"4.17.1\"."
+     },
+     "ecosystem": {
+      "type": "string",
+      "default": "npm",
+      "description": "Package ecosystem: npm, PyPI, crates.io, Go, Maven, NuGet, RubyGems or Packagist. Default \"npm\"."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/github_repo",
+   "method": "POST",
+   "description": "A GitHub repository at a glance: stars, forks, open issues, last commit, latest release, license, languages, contributors, archived — is it alive and trustworthy?",
+   "price_usd": 0.002,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "repo"
+    ],
+    "properties": {
+     "repo": {
+      "type": "string",
+      "description": "owner/name or a github.com URL"
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/hn_search",
+   "method": "POST",
+   "description": "Search Hacker News stories and comments by keyword, sorted by relevance or date, filtered by time window and minimum points — what developers are saying about anything.",
+   "price_usd": 0.001,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "query"
+    ],
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Keywords to search for."
+     },
+     "type": {
+      "type": "string",
+      "enum": [
+       "story",
+       "comment",
+       "show_hn",
+       "ask_hn"
+      ],
+      "default": "story",
+      "description": "Stories, comments, Show HN or Ask HN posts. One of \"story\", \"comment\", \"show_hn\", \"ask_hn\". Default \"story\"."
+     },
+     "sort": {
+      "type": "string",
+      "enum": [
+       "relevance",
+       "date"
+      ],
+      "default": "relevance",
+      "description": "Order by relevance or newest first. One of \"relevance\", \"date\". Default \"relevance\"."
+     },
+     "days": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3650,
+      "default": 365,
+      "description": "Only items from the last N days. Range 1-3650. Default 365."
+     },
+     "min_points": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Only items with at least this many points. Default 0."
+     },
+     "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 15,
+      "description": "How many results to return. Range 1-50. Default 15."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/doi_lookup",
+   "method": "POST",
+   "description": "Resolve a DOI — or search a paper title — to full citation metadata: title, authors, journal, year, citations count, publisher, license, and a ready-made APA/BibTeX citation.",
+   "price_usd": 0.001,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "doi": {
+      "type": "string",
+      "description": "e.g. 10.1038/nature14539"
+     },
+     "query": {
+      "type": "string",
+      "description": "title/author search instead of a DOI"
+     },
+     "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20,
+      "default": 5,
+      "description": "How many matches to return when searching by title. Range 1-20. Default 5."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/book_search",
+   "method": "POST",
+   "description": "Find books by title, author, subject or ISBN: first published year, editions, ISBNs, page count, ratings, subjects and cover image.",
+   "price_usd": 0.001,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "query"
+    ],
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "title, author or ISBN"
+     },
+     "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20,
+      "default": 5,
+      "description": "How many books to return. Range 1-20. Default 5."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/weather",
+   "method": "POST",
+   "description": "Current weather and hourly/daily forecast for any place name or lat,lon: temperature, feels-like, wind, gusts, rain, cloud, humidity, UV — up to 9 days.",
+   "price_usd": 0.001,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "place"
+    ],
+    "properties": {
+     "place": {
+      "type": "string",
+      "description": "city/address or \"lat,lon\""
+     },
+     "days": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9,
+      "default": 3,
+      "description": "Days of daily forecast to include. Range 1-9. Default 3."
+     },
+     "tz": {
+      "type": "string",
+      "description": "IANA time zone for local times (optional)"
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/geocode",
+   "method": "POST",
+   "description": "Place name or address → coordinates (with city, state, country, postcode), or lat,lon → the nearest address. Up to 10 candidates.",
+   "price_usd": 0.001,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "query"
+    ],
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "address/place, or \"lat,lon\" for reverse"
+     },
+     "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10,
+      "default": 3,
+      "description": "How many candidate matches to return. Range 1-10. Default 3."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/bundle_forensics",
+   "method": "POST",
+   "description": "Who bundled a Solana pump.fun launch: every block-0 wallet labelled sniper bot / bundle / dev-linked, supply bought and still held, holders who got tokens by transfer, serial-dev check, top-10 concentration, RugCheck — plus a back-tested skip/pass verdict.",
+   "price_usd": 0.003,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "mint"
+    ],
+    "properties": {
+     "mint": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "description": "Solana token mint (pump.fun launches get the full bundle view) Base58 Solana address, 32-44 chars."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/bundler_profile",
+   "method": "POST",
+   "description": "Is this Solana wallet a bundler? Every pump.fun launch it bought in the first 2 slots over the last 10 days, which creators it keeps bundling for, and whether it is a mass sniper bot or a dev's private bundle wallet.",
+   "price_usd": 0.002,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "wallet"
+    ],
+    "properties": {
+     "wallet": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "description": "Solana wallet. Base58 Solana address, 32-44 chars."
+     },
+     "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 25,
+      "description": "Range 1-100. Default 25."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/creator_launches",
+   "method": "POST",
+   "description": "Every pump.fun coin a Solana wallet created in the last 10 days, how many graduated, and the wallets that bundle its launches again and again (its private bundle crew).",
+   "price_usd": 0.002,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "creator"
+    ],
+    "properties": {
+     "creator": {
+      "type": "string",
+      "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+      "description": "creator (dev) wallet. Base58 Solana address, 32-44 chars."
+     },
+     "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 25,
+      "description": "Range 1-100. Default 25."
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  {
+   "resource": "https://augur-trade.com/hub/api/v1/tools/evm_bundle_forensics",
+   "method": "POST",
+   "description": "Who bundled an EVM token launch (Base, BSC, Ethereum, Arbitrum, Robinhood and 13 more): creation-tx airdrops to fake holders, first-seconds buys, scripted fixed-cadence buying, fresh-wallet and transfer-only holders, dev holdings, exchange-labelled holders, GoPlus contract flags — plus a skip/pass verdict.",
+   "price_usd": 0.005,
+   "networks": [
+    "solana",
+    "base"
+   ],
+   "assets": [
+    "USDC",
+    "SOL"
+   ],
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "chain",
+     "token"
+    ],
+    "properties": {
+     "chain": {
+      "type": "string",
+      "enum": [
+       "ethereum",
+       "base",
+       "arbitrum",
+       "optimism",
+       "polygon",
+       "bsc",
+       "avalanche",
+       "linea",
+       "blast",
+       "scroll",
+       "gnosis",
+       "sonic",
+       "unichain",
+       "mantle",
+       "berachain",
+       "hyperevm",
+       "monad",
+       "robinhood"
+      ],
+      "default": "base",
+      "description": "EVM chain: ethereum, base, arbitrum, optimism, polygon, bsc, avalanche, linea, blast, scroll, gnosis, sonic, unichain, mantle, berachain, hyperevm, monad, robinhood. One of \"ethereum\", \"base\", \"arbitrum\", \"optimism\", \"polygon\", \"bsc\", \"avalanche\", \"linea\", \"blast\", \"scroll\", \"gnosis\", \"sonic\", \"unichain\", \"mantle\", \"berachain\", \"hyperevm\", \"monad\", \"robinhood\". Default \"base\"."
+     },
+     "token": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{40}$",
+      "description": "ERC-20 token contract address. 0x + 40 hex chars."
+     }
+    },
+    "additionalProperties": false
+   }
+  }
+ ]
+}

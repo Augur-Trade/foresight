@@ -1,0 +1,123 @@
+[
+ {
+  "url": "https://augur-trade.com/hub/mcp/pump",
+  "title": "A.U.G.U.R Synapse · Pump & LP",
+  "tools": [
+   "pump_pulse",
+   "pump_history",
+   "pump_launches",
+   "pump_token",
+   "pump_wallet",
+   "pump_dev",
+   "pump_odds",
+   "smart_money",
+   "copy_backtest",
+   "dlmm_pool",
+   "dlmm_positions",
+   "dlmm_whales"
+  ]
+ },
+ {
+  "url": "https://augur-trade.com/hub/mcp/risk",
+  "title": "A.U.G.U.R Synapse · Wallets & Risk",
+  "tools": [
+   "token_risk",
+   "launch_scan",
+   "counterparty_check",
+   "price",
+   "wallet_holdings",
+   "tx_explain",
+   "evm_token_security",
+   "evm_address",
+   "erc20_info",
+   "evm_tx",
+   "ens_resolve",
+   "solana_network",
+   "bitcoin_network",
+   "address_check",
+   "vuln_check"
+  ]
+ },
+ {
+  "url": "https://augur-trade.com/hub/mcp/chain",
+  "title": "A.U.G.U.R Synapse · Chain",
+  "tools": [
+   "crypto_price",
+   "price_history",
+   "defi_rankings",
+   "defi_protocol",
+   "chain_tvl",
+   "yield_pools",
+   "stablecoins",
+   "dex_volumes",
+   "fees_revenue",
+   "gas_now",
+   "cex_ticker",
+   "orderbook_depth",
+   "funding_rates",
+   "hyperliquid_markets",
+   "fear_greed"
+  ]
+ },
+ {
+  "url": "https://augur-trade.com/hub/mcp/web",
+  "title": "A.U.G.U.R Synapse · Web & Research",
+  "tools": [
+   "web_read",
+   "web_meta",
+   "dns_lookup",
+   "domain_whois",
+   "tls_check",
+   "http_probe",
+   "robots_check",
+   "email_check",
+   "wiki",
+   "arxiv_search",
+   "package_info",
+   "github_repo",
+   "hn_search",
+   "doi_lookup",
+   "book_search"
+  ]
+ },
+ {
+  "url": "https://augur-trade.com/hub/mcp/world",
+  "title": "A.U.G.U.R Synapse · World",
+  "tools": [
+   "weather",
+   "geocode",
+   "fx_rates",
+   "holidays",
+   "time_convert",
+   "country_info",
+   "earthquakes",
+   "sun_moon"
+  ]
+ },
+ {
+  "url": "https://augur-trade.com/hub/mcp/util",
+  "title": "A.U.G.U.R Synapse · Utils",
+  "tools": [
+   "qr_code",
+   "hash_encode",
+   "json_schema_validate",
+   "cron_explain",
+   "markdown_convert",
+   "text_diff",
+   "unit_convert",
+   "jwt_decode",
+   "random_gen",
+   "text_stats"
+  ]
+ },
+ {
+  "url": "https://augur-trade.com/hub/mcp/forensics",
+  "title": "A.U.G.U.R Synapse · Bundle Forensics",
+  "tools": [
+   "bundle_forensics",
+   "bundler_profile",
+   "creator_launches",
+   "evm_bundle_forensics"
+  ]
+ }
+]

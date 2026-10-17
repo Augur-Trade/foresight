@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "augur-synapse": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://augur-trade.com/hub/mcp"]
+    }
+  }
+}

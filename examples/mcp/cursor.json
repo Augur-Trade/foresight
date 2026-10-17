@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "augur-synapse": {
+      "url": "https://augur-trade.com/hub/mcp"
+    }
+  }
+}
