@@ -679,7 +679,7 @@
    "post": {
     "operationId": "token_risk",
     "summary": "Token risk score",
-    "description": "0-100 rug-risk score for any Solana token: mint/freeze authority, Token-2022 traps, holder concentration, liquidity depth — plus pump.fun curve flags. Contract state is read live from Solana (authorities, Token-2022 extensions such as transfer fees, hooks, permanent delegate, pausable), holders from the largest accounts, market from DexScreener. For pump.fun mints the curve forensics flags are merged in.",
+    "description": "0-100 rug-risk score for any Solana token: mint/freeze authority, Token-2022 traps, holder concentration, liquidity depth — plus pump.fun curve flags. Contract state is read live from Solana (authorities, Token-2022 extensions such as transfer fees, hooks, permanent delegate, pausable), holders from the largest accounts, market from DexScreener; for tokens still on any launchpad bonding curve (pump.fun, Meteora DBC, letsbonk…) liquidity is the SOL/USDC in the curve, read from chain (field `curve`). For pump.fun mints the curve forensics flags are merged in.",
     "tags": [
      "Risk Amygdala"
     ],
