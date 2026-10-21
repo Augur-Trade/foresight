@@ -4,6 +4,8 @@
 
 <p align="center">
   <a href="https://augur-trade.com/hub"><img src="https://img.shields.io/badge/live-augur--trade.com%2Fhub-8b5cf6?style=for-the-badge&labelColor=0c0a13" alt="Live"></a>
+  <a href="https://x.com/AUGURtrading"><img src="https://img.shields.io/badge/follow-@AUGURtrading-ece8f6?style=for-the-badge&logo=x&labelColor=0c0a13" alt="Follow on X"></a>
+  <a href="https://t.me/AUGUR_Trade"><img src="https://img.shields.io/badge/telegram-AUGUR__Trade-29a9eb?style=for-the-badge&logo=telegram&labelColor=0c0a13" alt="Telegram"></a>
   <a href="docs/endpoints/README.md"><img src="https://img.shields.io/badge/endpoints-79-33e2a0?style=for-the-badge&labelColor=0c0a13" alt="79 endpoints"></a>
   <a href="docs/payments.md"><img src="https://img.shields.io/badge/x402-USDC_·_SOL_·_Base-b49aff?style=for-the-badge&labelColor=0c0a13" alt="x402"></a>
   <a href="docs/mcp.md"><img src="https://img.shields.io/badge/MCP-streamable_HTTP-e8b64f?style=for-the-badge&labelColor=0c0a13" alt="MCP"></a>
