@@ -1,10 +1,10 @@
 {
  "protocolVersion": "0.3.0",
- "name": "A.U.G.U.R Synapse",
+ "name": "A.U.G.U.R Foresight",
  "description": "Tool exchange for AI agents run by A.L.F: 79 tools — crypto markets and DeFi on every chain (prices, TVL, yields, stablecoins, perps funding, order books, gas, EVM contracts and token security), Solana and pump.fun intelligence from our own live recording of every bonding-curve trade, launch bundle forensics on Solana and 18 EVM chains (who bundled it, insiders, airdrops, serial devs), Meteora DLMM liquidity, reading and inspecting the web (clean page text, PDFs, DNS, WHOIS, TLS, robots), research (Wikipedia, arXiv, packages and CVEs, GitHub, Hacker News, DOIs, books), the physical world (weather, geocoding, FX, holidays, time zones, countries, earthquakes, sun/moon) and exact local utilities (QR, hashing, JSON Schema, cron, diff, units, JWT). Pay per call in USDC or SOL (x402) or with credits.",
  "url": "https://augur-trade.com/hub/api/v1",
  "preferredTransport": "HTTP+JSON",
- "version": "2.2.0",
+ "version": "3.0.0",
  "iconUrl": "https://augur-trade.com/hub/assets/icon-512.png",
  "documentationUrl": "https://augur-trade.com/hub/docs",
  "provider": {

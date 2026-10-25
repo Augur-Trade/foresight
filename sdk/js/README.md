@@ -3,8 +3,8 @@
 Zero-dependency client, one method per endpoint, generated from the live catalog. Node 18+, browsers, Deno and Bun.
 
 ```js
-import { Synapse } from './augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });   // or { freeTier: true }, or { pay }
+import { Foresight } from './augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });   // or { freeTier: true }, or { pay }
 const { data } = await synapse.launchScan({ mint: '<pump.fun mint>' });
 ```
 

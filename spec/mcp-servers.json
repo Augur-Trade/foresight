@@ -1,7 +1,7 @@
 [
  {
   "url": "https://augur-trade.com/hub/mcp/pump",
-  "title": "A.U.G.U.R Synapse · Pump & LP",
+  "title": "A.U.G.U.R Foresight · Pump & LP",
   "tools": [
    "pump_pulse",
    "pump_history",
@@ -19,7 +19,7 @@
  },
  {
   "url": "https://augur-trade.com/hub/mcp/risk",
-  "title": "A.U.G.U.R Synapse · Wallets & Risk",
+  "title": "A.U.G.U.R Foresight · Wallets & Risk",
   "tools": [
    "token_risk",
    "launch_scan",
@@ -40,7 +40,7 @@
  },
  {
   "url": "https://augur-trade.com/hub/mcp/chain",
-  "title": "A.U.G.U.R Synapse · Chain",
+  "title": "A.U.G.U.R Foresight · Chain",
   "tools": [
    "crypto_price",
    "price_history",
@@ -61,7 +61,7 @@
  },
  {
   "url": "https://augur-trade.com/hub/mcp/web",
-  "title": "A.U.G.U.R Synapse · Web & Research",
+  "title": "A.U.G.U.R Foresight · Web & Research",
   "tools": [
    "web_read",
    "web_meta",
@@ -82,7 +82,7 @@
  },
  {
   "url": "https://augur-trade.com/hub/mcp/world",
-  "title": "A.U.G.U.R Synapse · World",
+  "title": "A.U.G.U.R Foresight · World",
   "tools": [
    "weather",
    "geocode",
@@ -96,7 +96,7 @@
  },
  {
   "url": "https://augur-trade.com/hub/mcp/util",
-  "title": "A.U.G.U.R Synapse · Utils",
+  "title": "A.U.G.U.R Foresight · Utils",
   "tools": [
    "qr_code",
    "hash_encode",
@@ -112,7 +112,7 @@
  },
  {
   "url": "https://augur-trade.com/hub/mcp/forensics",
-  "title": "A.U.G.U.R Synapse · Bundle Forensics",
+  "title": "A.U.G.U.R Foresight · Bundle Forensics",
   "tools": [
    "bundle_forensics",
    "bundler_profile",

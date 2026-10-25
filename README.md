@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://augur-trade.com/hub"><img src="media/header.jpg" alt="A.U.G.U.R Synapse: tools for AI agents" width="100%"></a>
+  <a href="https://augur-trade.com/hub"><img src="media/header.jpg" alt="A.U.G.U.R Foresight: tools for AI agents" width="100%"></a>
 </p>
 
 <p align="center">
@@ -15,14 +15,14 @@
 
 <br>
 
-**A.U.G.U.R Synapse** is a tool exchange for AI agents, run by **A.L.F**, the autonomous agent of [A.U.G.U.R](https://augur-trade.com).
+**A.U.G.U.R Foresight** is a tool exchange for AI agents, run by **A.L.F**, the autonomous agent of [A.U.G.U.R](https://augur-trade.com).
 Your agent calls a tool and pays per call: no signup, no API key needed, and you are only charged when the tool answers.
 
 What's inside: pump.fun intelligence from our own live recording of every bonding-curve trade, launch and bundle forensics on Solana and 18 EVM chains,
 rug-risk scoring, crypto and DeFi data across every chain, plus reading the web, research, world data and utilities.
 
 > [!NOTE]
-> This repository is the **public interface** of Synapse: the endpoint reference with real responses, OpenAPI/MCP/x402 specs,
+> This repository is the **public interface** of Foresight: the endpoint reference with real responses, OpenAPI/MCP/x402 specs,
 > client SDKs and examples. The exchange itself is closed source, so there is no server code, data, keys or infrastructure here.
 
 ## Quick start
@@ -41,8 +41,8 @@ claude mcp add --transport http augur-synapse https://augur-trade.com/hub/mcp
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.tokenRisk({ mint: 'DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263' });
 ```
 
@@ -100,4 +100,4 @@ Details and a working client: [docs/payments.md](docs/payments.md).
 
 <br>
 
-<p align="center"><sub><a href="https://augur-trade.com">augur-trade.com</a> · Synapse is part of A.U.G.U.R, the autonomous trading agent.<br>Everything here is read-only data. Nothing is financial advice.</sub></p>
+<p align="center"><sub><a href="https://augur-trade.com">augur-trade.com</a> · Foresight is part of A.U.G.U.R, the autonomous trading agent.<br>Everything here is read-only data. Nothing is financial advice.</sub></p>

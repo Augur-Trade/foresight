@@ -1,9 +1,9 @@
-"""A.U.G.U.R Synapse client: one method per endpoint (79 tools). Generated from the live catalog.
+"""A.U.G.U.R Foresight client: one method per endpoint (79 tools). Generated from the live catalog.
 
 Standard library only (Python 3.8+). MIT.
 
-    from augur_synapse import Synapse
-    synapse = Synapse(key="hk_...")            # credit key, optional; or Synapse(free_tier=True)
+    from augur_synapse import Foresight
+    synapse = Foresight(key="hk_...")            # credit key, optional; or Foresight(free_tier=True)
     data = synapse.price(mints=["So11111111111111111111111111111111111111112"])["data"]
 """
 import json
@@ -19,7 +19,7 @@ class SynapseError(Exception):
         self.status, self.body = status, body
 
 
-class Synapse:
+class Foresight:
     def __init__(self, key=None, free_tier=False, pay=None, base=BASE, timeout=90):
         """key: prepaid credit key (hk_...). free_tier: send X-Synapse-Free: 1.
         pay: optional callable(requirements_402, tool, args) -> base64 X-PAYMENT payload or None."""

@@ -43,15 +43,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/bundle_forensics \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.bundleForensics({"mint": "J8yXtgS6woDh5x2pyaSYdKCpdgt7uVqRtwcZk6eUpump"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.bundle_forensics(mint='J8yXtgS6woDh5x2pyaSYdKCpdgt7uVqRtwcZk6eUpump')['data']
 ```
 
@@ -178,15 +178,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/bundler_profile \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.bundlerProfile({"wallet": "6dnHfCbAyDg1U3cuY6ZNNEt3FufdLnCkLEqLShy1VmoR"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.bundler_profile(wallet='6dnHfCbAyDg1U3cuY6ZNNEt3FufdLnCkLEqLShy1VmoR')['data']
 ```
 
@@ -257,15 +257,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/creator_launches \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.creatorLaunches({"creator": "6jnpTs6TYkd8w1PYqRVkQaYpPfzyGN9Vxz63AZr7wtoy"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.creator_launches(creator='6jnpTs6TYkd8w1PYqRVkQaYpPfzyGN9Vxz63AZr7wtoy')['data']
 ```
 
@@ -357,15 +357,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/evm_bundle_forensics \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.evmBundleForensics({"chain": "bsc", "token": "0xfe6b7c083fed0e69974dd7840f018acf5c107777"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.evm_bundle_forensics(chain='bsc', token='0xfe6b7c083fed0e69974dd7840f018acf5c107777')['data']
 ```
 

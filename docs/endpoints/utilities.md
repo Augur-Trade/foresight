@@ -56,15 +56,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/qr_code \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.qrCode({"text": "https://example.com", "format": "svg", "size": 256});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.qr_code(text='https://example.com', format='svg', size=256)['data']
 ```
 
@@ -129,15 +129,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/hash_encode \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.hashEncode({"input": "transfer(address,uint256)", "hashes": ["keccak256", "sha256"]});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.hash_encode(input='transfer(address,uint256)', hashes=['keccak256', 'sha256'])['data']
 ```
 
@@ -211,15 +211,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/json_schema_validate \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.jsonSchemaValidate({"data": {"name": "Ada", "age": -1, "email": "nope"}, "schema": {"type": "object", "required": ["name", "age"], "properties": {"name": {"type": "string"}, "age": {"type": "integer", "minimum": 0}, "email": {"type": "string", "format": "email"}}}});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.json_schema_validate(data={'name': 'Ada', 'age': -1, 'email': 'nope'}, schema={'type': 'object', 'required': ['name', 'age'], 'properties': {'name': {'type': 'string'}, 'age': {'type': 'integer', 'minimum': 0}, 'email': {'type': 'string', 'format': 'email'}}})['data']
 ```
 
@@ -301,15 +301,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/cron_explain \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.cronExplain({"expression": "*/15 9-17 * * 1-5", "tz": "America/New_York", "count": 4});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.cron_explain(expression='*/15 9-17 * * 1-5', tz='America/New_York', count=4)['data']
 ```
 
@@ -388,15 +388,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/markdown_convert \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.markdownConvert({"input": "# Hello\n\n| a | b |\n|---|---|\n| 1 | 2 |\n\n- [x] done", "to": "html"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.markdown_convert(input='# Hello\n\n| a | b |\n|---|---|\n| 1 | 2 |\n\n- [x] done', to='html')['data']
 ```
 
@@ -460,15 +460,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/text_diff \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.textDiff({"a": "rate limit: 10/min\nretries: 2\n", "b": "rate limit: 120/min\nretries: 2\ntimeout: 30s\n"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.text_diff(a='rate limit: 10/min\nretries: 2\n', b='rate limit: 120/min\nretries: 2\ntimeout: 30s\n')['data']
 ```
 
@@ -548,15 +548,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/unit_convert \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.unitConvert({"value": 100, "from": "km/h", "to": "mph"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.unit_convert(value=100, from_='km/h', to='mph')['data']
 ```
 
@@ -620,15 +620,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/jwt_decode \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.jwtDecode({"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbGYiLCJpYXQiOjE3OTAwMDAwMDAsImV4cCI6MTc5MDAwMzYwMH0.kS2XSeH9sgBX7w0Zm6D7g8Eo3HjQyGAJk1S1vXbFpXE"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.jwt_decode(token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbGYiLCJpYXQiOjE3OTAwMDAwMDAsImV4cCI6MTc5MDAwMzYwMH0.kS2XSeH9sgBX7w0Zm6D7g8Eo3HjQyGAJk1S1vXbFpXE')['data']
 ```
 
@@ -708,15 +708,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/random_gen \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.randomGen({"kind": "password", "count": 2, "length": 24});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.random_gen(kind='password', count=2, length=24)['data']
 ```
 
@@ -781,15 +781,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/text_stats \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.textStats({"text": "Solana processed 3,000 transactions a second today. Read more at https://example.com — or ask @someone. #solana"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.text_stats(text='Solana processed 3,000 transactions a second today. Read more at https://example.com — or ask @someone. #solana')['data']
 ```
 

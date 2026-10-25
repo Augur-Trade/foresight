@@ -48,15 +48,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/wiki \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.wiki({"query": "Solana blockchain"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.wiki(query='Solana blockchain')['data']
 ```
 
@@ -141,15 +141,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/arxiv_search \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.arxivSearch({"query": "LLM agents tool use", "sort": "newest", "limit": 5});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.arxiv_search(query='LLM agents tool use', sort='newest', limit=5)['data']
 ```
 
@@ -192,15 +192,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/package_info \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.packageInfo({"name": "@solana/web3.js", "ecosystem": "npm"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.package_info(name='@solana/web3.js', ecosystem='npm')['data']
 ```
 
@@ -277,15 +277,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/github_repo \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.githubRepo({"repo": "solana-labs/solana-web3.js"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.github_repo(repo='solana-labs/solana-web3.js')['data']
 ```
 
@@ -404,15 +404,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/hn_search \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.hnSearch({"query": "MCP server", "days": 30, "min_points": 50, "limit": 5});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.hn_search(query='MCP server', days=30, min_points=50, limit=5)['data']
 ```
 
@@ -509,15 +509,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/doi_lookup \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.doiLookup({"doi": "10.1038/nature14539"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.doi_lookup(doi='10.1038/nature14539')['data']
 ```
 
@@ -599,15 +599,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/book_search \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.bookSearch({"query": "Dune Frank Herbert", "limit": 3});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.book_search(query='Dune Frank Herbert', limit=3)['data']
 ```
 

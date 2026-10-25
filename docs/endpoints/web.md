@@ -49,15 +49,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/web_read \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.webRead({"url": "https://en.wikipedia.org/wiki/Large_language_model", "max_chars": 3000});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.web_read(url='https://en.wikipedia.org/wiki/Large_language_model', max_chars=3000)['data']
 ```
 
@@ -130,15 +130,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/web_meta \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.webMeta({"url": "https://www.wikipedia.org"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.web_meta(url='https://www.wikipedia.org')['data']
 ```
 
@@ -229,15 +229,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/dns_lookup \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.dnsLookup({"domain": "github.com"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.dns_lookup(domain='github.com')['data']
 ```
 
@@ -353,15 +353,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/domain_whois \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.domainWhois({"domain": "wikipedia.org"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.domain_whois(domain='wikipedia.org')['data']
 ```
 
@@ -447,15 +447,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/tls_check \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.tlsCheck({"host": "github.com"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.tls_check(host='github.com')['data']
 ```
 
@@ -556,15 +556,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/http_probe \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.httpProbe({"url": "https://example.com"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.http_probe(url='https://example.com')['data']
 ```
 
@@ -667,15 +667,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/robots_check \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.robotsCheck({"url": "https://www.nytimes.com/section/technology", "user_agent": "GPTBot"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.robots_check(url='https://www.nytimes.com/section/technology', user_agent='GPTBot')['data']
 ```
 
@@ -771,15 +771,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/email_check \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.emailCheck({"email": "someone@mailinator.com"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.email_check(email='someone@mailinator.com')['data']
 ```
 

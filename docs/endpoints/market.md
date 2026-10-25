@@ -45,15 +45,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/price \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.price({"mints": ["So11111111111111111111111111111111111111112", "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN"]});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.price(mints=['So11111111111111111111111111111111111111112', 'JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN'])['data']
 ```
 
@@ -130,15 +130,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/wallet_holdings \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.walletHoldings({"wallet": "86xCnPeV69n6t3DnyGvkKobf9FdN2H9oiVDdaMpo2MMY"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.wallet_holdings(wallet='86xCnPeV69n6t3DnyGvkKobf9FdN2H9oiVDdaMpo2MMY')['data']
 ```
 
@@ -239,15 +239,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/tx_explain \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.txExplain({"signature": "4e1vcgjBw2yfNTzGSneQdmY87G1ubgTQNvzsbyN9oPMdFmFKvaAx9UnXM1VaKnY7MFRfV5Mx2xtcNaEkrifmA5u8"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.tx_explain(signature='4e1vcgjBw2yfNTzGSneQdmY87G1ubgTQNvzsbyN9oPMdFmFKvaAx9UnXM1VaKnY7MFRfV5Mx2xtcNaEkrifmA5u8')['data']
 ```
 
@@ -310,15 +310,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/evm_address \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.evmAddress({"address": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "chain": "all"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.evm_address(address='0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045', chain='all')['data']
 ```
 
@@ -416,15 +416,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/erc20_info \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.erc20Info({"token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "wallet": "0x3304E22DDaa22bCdC5fCa2269b418046aE7b566A", "chain": "base"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.erc20_info(token='0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913', wallet='0x3304E22DDaa22bCdC5fCa2269b418046aE7b566A', chain='base')['data']
 ```
 
@@ -498,15 +498,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/evm_tx \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.evmTx({"hash": "0xedc1ff7d3ac9efa7f6cb95814ea54b8a49c4118807769d84fa17260f21bb80ad", "chain": "ethereum"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.evm_tx(hash='0xedc1ff7d3ac9efa7f6cb95814ea54b8a49c4118807769d84fa17260f21bb80ad', chain='ethereum')['data']
 ```
 
@@ -584,15 +584,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/solana_network \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.solanaNetwork();
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.solana_network()['data']
 ```
 

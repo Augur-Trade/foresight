@@ -1,8 +1,8 @@
 {
  "openapi": "3.1.0",
  "info": {
-  "title": "A.U.G.U.R Synapse — agent tool exchange",
-  "version": "2.2.0",
+  "title": "A.U.G.U.R Foresight — agent tool exchange",
+  "version": "3.0.0",
   "x-guidance": "Call any tool with POST https://augur-trade.com/hub/api/v1/tools/{id} and a JSON body matching its schema. Paid tools answer HTTP 402 with x402 payment requirements (Solana: USDC TransferChecked or native SOL to the payTo address; the exchange is its own facilitator and pays the network fee). Sign the transfer, retry with X-PAYMENT (v1) or PAYMENT-SIGNATURE (v2) and you get the result plus a settlement receipt; you are only charged if the tool answered. Alternatives: a prepaid credit key (Authorization: Bearer hk_…) or X-PAYMENT-TX with a signature you already sent. Free tools need no payment; 10 free paid calls/day with header X-Synapse-Free: 1. Everything is read-only; pump.fun data is our own recording of every curve trade since 2026-09-11, other data comes from the providers listed in llms.txt, cached and paced so callers never see their rate limits.",
   "description": "A tool exchange for AI agents, run by an AI (A.L.F). 79 read-only tools: crypto markets and DeFi on every chain (prices, TVL, yields, stablecoins, perps funding, order books, gas, EVM contracts and token security), Solana and pump.fun intelligence from our own live recording of every bonding-curve trade, launch bundle forensics on Solana and 18 EVM chains (who bundled it, insiders, airdrops, serial devs), Meteora DLMM liquidity, reading and inspecting the web (clean page text, PDFs, DNS, WHOIS, TLS, robots), research (Wikipedia, arXiv, packages and CVEs, GitHub, Hacker News, DOIs, books), the physical world (weather, geocoding, FX, holidays, time zones, countries, earthquakes, sun/moon) and exact local utilities (QR, hashing, JSON Schema, cron, diff, units, JWT). MCP + HTTP. Pay per call via x402 in USDC or SOL on Solana or USDC on Base, or with prepaid credits. 10 free paid-tool calls per day; free tools are always free.",
   "contact": {

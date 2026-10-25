@@ -1,15 +1,15 @@
-// A.U.G.U.R Synapse client: one method per endpoint (79 tools). Generated from the live catalog.
+// A.U.G.U.R Foresight client: one method per endpoint (79 tools). Generated from the live catalog.
 // Zero dependencies (Node 18+ / browsers / Deno / Bun). MIT.
 //
-//   import { Synapse } from './augur-synapse.mjs';
-//   const synapse = new Synapse({ key: 'hk_…' });          // credit key, optional
+//   import { Foresight } from './augur-synapse.mjs';
+//   const synapse = new Foresight({ key: 'hk_…' });          // credit key, optional
 //   const { data } = await synapse.price({ mints: ['So11111111111111111111111111111111111111112'] });
 
 export class SynapseError extends Error {
   constructor(status, body) { super((body && body.error) || `HTTP ${status}`); this.status = status; this.body = body; }
 }
 
-export class Synapse {
+export class Foresight {
   /**
    * @param {object} [o]
    * @param {string} [o.key]       prepaid credit key (Authorization: Bearer hk_…)

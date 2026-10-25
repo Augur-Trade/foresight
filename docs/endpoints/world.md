@@ -49,15 +49,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/weather \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.weather({"place": "Sydney, Australia", "days": 2, "tz": "Australia/Sydney"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.weather(place='Sydney, Australia', days=2, tz='Australia/Sydney')['data']
 ```
 
@@ -198,15 +198,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/geocode \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.geocode({"query": "Eiffel Tower", "limit": 2});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.geocode(query='Eiffel Tower', limit=2)['data']
 ```
 
@@ -300,15 +300,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/fx_rates \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.fxRates({"from": "USD", "to": ["EUR", "AUD", "JPY"], "amount": 100});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.fx_rates(from_='USD', to=['EUR', 'AUD', 'JPY'], amount=100)['data']
 ```
 
@@ -377,15 +377,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/holidays \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.holidays({"country": "AU"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.holidays(country='AU')['data']
 ```
 
@@ -523,15 +523,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/time_convert \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.timeConvert({"time": "2026-12-25T09:00", "from_tz": "Australia/Sydney", "to_tz": ["America/New_York", "Europe/London", "Asia/Tokyo"], "add": "+1d"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.time_convert(time='2026-12-25T09:00', from_tz='Australia/Sydney', to_tz=['America/New_York', 'Europe/London', 'Asia/Tokyo'], add='+1d')['data']
 ```
 
@@ -621,15 +621,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/country_info \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.countryInfo({"country": "Japan"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.country_info(country='Japan')['data']
 ```
 
@@ -740,15 +740,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/earthquakes \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.earthquakes({"min_magnitude": 5, "period": "week"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.earthquakes(min_magnitude=5, period='week')['data']
 ```
 
@@ -864,15 +864,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/sun_moon \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.sunMoon({"place": "Reykjavik", "tz": "Atlantic/Reykjavik"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.sun_moon(place='Reykjavik', tz='Atlantic/Reykjavik')['data']
 ```
 

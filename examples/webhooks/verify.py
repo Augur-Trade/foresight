@@ -1,4 +1,4 @@
-"""Verify a Synapse alert before trusting it (needs the RAW request body)."""
+"""Verify a Foresight alert before trusting it (needs the RAW request body)."""
 import hashlib
 import hmac
 

@@ -1,7 +1,7 @@
 // node quickstart.mjs: free tools, then a paid tool on the free tier
-import { Synapse } from '../../sdk/js/augur-synapse.mjs';
+import { Foresight } from '../../sdk/js/augur-synapse.mjs';
 
-const synapse = new Synapse({ freeTier: true });
+const synapse = new Foresight({ freeTier: true });
 const pulse = (await synapse.pumpPulse()).data;
 console.log('pump.fun right now:', pulse.trades_per_min, 'trades/min');
 

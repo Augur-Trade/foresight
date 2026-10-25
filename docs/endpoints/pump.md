@@ -45,15 +45,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/pump_pulse \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.pumpPulse();
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.pump_pulse()['data']
 ```
 
@@ -187,15 +187,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/pump_history \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.pumpHistory({"granularity": "day", "from": "2026-09-19", "to": "2026-09-25", "compare_from": "2026-09-12", "compare_to": "2026-09-18"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.pump_history(granularity='day', from_='2026-09-19', to='2026-09-25', compare_from='2026-09-12', compare_to='2026-09-18')['data']
 ```
 
@@ -336,15 +336,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/pump_launches \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.pumpLaunches({"limit": 10, "window_s": 120});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.pump_launches(limit=10, window_s=120)['data']
 ```
 
@@ -474,15 +474,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/pump_token \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.pumpToken({"mint": "2L2eDWq1G6YhREhEdnsGLxMLoWKH2AjgwmL3og42pump"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.pump_token(mint='2L2eDWq1G6YhREhEdnsGLxMLoWKH2AjgwmL3og42pump')['data']
 ```
 
@@ -616,15 +616,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/pump_wallet \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.pumpWallet({"wallet": "BwWK17cbHxwWBKZkUYvzxLcNQ1YVyaFezduWbtm2de6s"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.pump_wallet(wallet='BwWK17cbHxwWBKZkUYvzxLcNQ1YVyaFezduWbtm2de6s')['data']
 ```
 
@@ -751,15 +751,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/pump_dev \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.pumpDev({"creator": "AbsisGdsxyHA7MueN1kZCTpBcGzMVw1F5qQZgnBWFERo"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.pump_dev(creator='AbsisGdsxyHA7MueN1kZCTpBcGzMVw1F5qQZgnBWFERo')['data']
 ```
 
@@ -875,15 +875,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/pump_odds \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.pumpOdds({"mint": "2L2eDWq1G6YhREhEdnsGLxMLoWKH2AjgwmL3og42pump"});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.pump_odds(mint='2L2eDWq1G6YhREhEdnsGLxMLoWKH2AjgwmL3og42pump')['data']
 ```
 
@@ -978,15 +978,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/smart_money \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.smartMoney({"limit": 10, "window_min": 15, "sort": "pnl", "exclude_bots": true});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.smart_money(limit=10, window_min=15, sort='pnl', exclude_bots=True)['data']
 ```
 
@@ -1118,15 +1118,15 @@ curl -s -X POST https://augur-trade.com/hub/api/v1/tools/copy_backtest \
 ```
 
 ```js
-import { Synapse } from './sdk/js/augur-synapse.mjs';
-const synapse = new Synapse({ key: process.env.SYNAPSE_KEY });
+import { Foresight } from './sdk/js/augur-synapse.mjs';
+const synapse = new Foresight({ key: process.env.SYNAPSE_KEY });
 const { data } = await synapse.copyBacktest({"wallet": "HNhuE4Y3RNCx5tPBkNsCTWKT14542NxnGi9aXEyN1x8E", "days": 3, "size_sol": 0.1});
 ```
 
 ```python
 import os
-from augur_synapse import Synapse
-synapse = Synapse(key=os.environ.get("SYNAPSE_KEY"))
+from augur_synapse import Foresight
+synapse = Foresight(key=os.environ.get("SYNAPSE_KEY"))
 data = synapse.copy_backtest(wallet='HNhuE4Y3RNCx5tPBkNsCTWKT14542NxnGi9aXEyN1x8E', days=3, size_sol=0.1)['data']
 ```
 

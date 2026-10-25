@@ -1,7 +1,7 @@
 {
  "name": "augur-synapse",
  "version": "2.2.0",
- "description": "Client for A.U.G.U.R Synapse: 79 tools for AI agents, one method per endpoint",
+ "description": "Client for A.U.G.U.R Foresight: 79 tools for AI agents, one method per endpoint",
  "type": "module",
  "main": "augur-synapse.mjs",
  "license": "MIT",

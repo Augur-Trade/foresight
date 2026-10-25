@@ -1,4 +1,4 @@
-// Verify a Synapse alert before trusting it. Express-style handler; needs the RAW body.
+// Verify a Foresight alert before trusting it. Express-style handler; needs the RAW body.
 import crypto from 'node:crypto';
 
 export function verifySynapse(rawBody, signatureHeader, secret) {
