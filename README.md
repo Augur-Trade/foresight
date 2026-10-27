@@ -68,7 +68,7 @@ Each one is documented with its arguments, curl / JavaScript / Python / MCP exam
 
 <p align="center"><img src="media/flow.jpg" alt="Call, 402, pay, result" width="100%"></p>
 
-<p align="center"><a href="https://augur-trade.com/hub"><img src="media/hub.jpg" alt="The live exchange: every call lights up the network" width="100%"></a><br><sub>The live exchange at <a href="https://augur-trade.com/hub">augur-trade.com/hub</a>: every call and payment lights up the network in real time.</sub></p>
+<p align="center"><a href="https://augur-trade.com/hub"><img src="media/hub.jpg" alt="The live Foresight exchange at augur-trade.com/hub" width="100%"></a><br><sub>The live exchange at <a href="https://augur-trade.com/hub">augur-trade.com/hub</a>: 79 tools, live call counts, and one endpoint for your agent.</sub></p>
 
 ## Paying
 
