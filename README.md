@@ -51,18 +51,26 @@ const { data } = await synapse.tokenRisk({ mint: 'DezXAZ8z7PnrnRJjz3wXBoRgixCa6x
 Every tool is one endpoint, `POST https://augur-trade.com/hub/api/v1/tools/{tool_id}`, and the same tool is on MCP.
 Each one is documented with its arguments, curl / JavaScript / Python / MCP examples and a **real sample response**.
 
-| Group | Tools | |
-|---|---|---|
-| [**Pump Cortex**](docs/endpoints/pump.md) | 9 | Every pump.fun bonding-curve trade since 2026-09-11, recorded live — 44M+ trades, 450k+ launches. |
-| [**Risk Amygdala**](docs/endpoints/risk.md) | 6 | Forensics before an agent puts money in: Solana launches and contracts, EVM honeypots, addresses, dependency CVEs. |
-| [**Forensics Lobe**](docs/endpoints/forensics.md) | 4 | Who is behind a launch: bundle wallets labelled bot / bundle / dev-linked, creation airdrops, scripted buying, transfer-only holders and serial devs — Solana pump.fun plus 18 EVM chains, with a back-tested skip/pass rug guard. |
-| [**Market Stem**](docs/endpoints/market.md) | 7 | Prices, balances and plain-language transactions — Solana plus 17 EVM chains. |
-| [**Liquidity Lobe**](docs/endpoints/liquidity.md) | 3 | Meteora DLMM pools, positions and the LP whales we track on chain. |
-| [**Chain Cortex**](docs/endpoints/chain.md) | 17 | Every chain at once: prices, DeFi TVL and yields, stablecoins, perps funding, order books, gas and EVM contracts. |
-| [**Web Senses**](docs/endpoints/web.md) | 8 | Read and inspect the open web: clean page text and PDFs, metadata, DNS and email security, WHOIS, TLS, uptime and robots rules. |
-| [**Knowledge Cortex**](docs/endpoints/knowledge.md) | 7 | Encyclopedia, research papers, software packages and their vulnerabilities, GitHub repos, Hacker News, citations and books. |
-| [**World Map**](docs/endpoints/world.md) | 8 | Places, weather, currencies, holidays, time zones, countries, earthquakes, sun and moon — the physical world for agents. |
-| [**Utility Cerebellum**](docs/endpoints/utilities.md) | 10 | Exact local tools with no upstream and no limits: QR codes, hashing and encoding, JSON Schema, cron, markdown, diffs, units, JWTs, secure random and text stats. |
+- [**Pump Cortex**](docs/endpoints/pump.md) · 9 tools  
+  Every pump.fun bonding-curve trade since 2026-09-11, recorded live — 44M+ trades, 450k+ launches.
+- [**Risk Amygdala**](docs/endpoints/risk.md) · 6 tools  
+  Forensics before an agent puts money in: Solana launches and contracts, EVM honeypots, addresses, dependency CVEs.
+- [**Forensics Lobe**](docs/endpoints/forensics.md) · 4 tools  
+  Who is behind a launch: bundle wallets labelled bot / bundle / dev-linked, creation airdrops, scripted buying, transfer-only holders and serial devs — Solana pump.fun plus 18 EVM chains, with a back-tested skip/pass rug guard.
+- [**Market Stem**](docs/endpoints/market.md) · 7 tools  
+  Prices, balances and plain-language transactions — Solana plus 17 EVM chains.
+- [**Liquidity Lobe**](docs/endpoints/liquidity.md) · 3 tools  
+  Meteora DLMM pools, positions and the LP whales we track on chain.
+- [**Chain Cortex**](docs/endpoints/chain.md) · 17 tools  
+  Every chain at once: prices, DeFi TVL and yields, stablecoins, perps funding, order books, gas and EVM contracts.
+- [**Web Senses**](docs/endpoints/web.md) · 8 tools  
+  Read and inspect the open web: clean page text and PDFs, metadata, DNS and email security, WHOIS, TLS, uptime and robots rules.
+- [**Knowledge Cortex**](docs/endpoints/knowledge.md) · 7 tools  
+  Encyclopedia, research papers, software packages and their vulnerabilities, GitHub repos, Hacker News, citations and books.
+- [**World Map**](docs/endpoints/world.md) · 8 tools  
+  Places, weather, currencies, holidays, time zones, countries, earthquakes, sun and moon — the physical world for agents.
+- [**Utility Cerebellum**](docs/endpoints/utilities.md) · 10 tools  
+  Exact local tools with no upstream and no limits: QR codes, hashing and encoding, JSON Schema, cron, markdown, diffs, units, JWTs, secure random and text stats.
 
 **[→ Full endpoint reference](docs/endpoints/README.md)**
 
@@ -72,25 +80,21 @@ Each one is documented with its arguments, curl / JavaScript / Python / MCP exam
 
 ## Paying
 
-| | |
-|---|---|
-| **Free tools** | 32 tools, no payment ever |
-| **Free tier** | `X-Synapse-Free: 1`: 10 paid calls a day per client |
-| **x402 on Solana** | USDC or SOL. The exchange is its own facilitator and pays the network fee |
-| **x402 on Base** | USDC via EIP-3009, gasless for you |
-| **Credit keys** | prepaid `hk_…` key, no per-call signing, no rate limit |
+- **Free tools**: 32 tools, no payment ever
+- **Free tier**: `X-Synapse-Free: 1`: 10 paid calls a day per client
+- **x402 on Solana**: USDC or SOL. The exchange is its own facilitator and pays the network fee
+- **x402 on Base**: USDC via EIP-3009, gasless for you
+- **Credit keys**: prepaid `hk_…` key, no per-call signing, no rate limit
 
 Details and a working client: [docs/payments.md](docs/payments.md).
 
 ## In this repo
 
-| Path | |
-|---|---|
-| [`docs/endpoints/`](docs/endpoints/README.md) | every endpoint: arguments, examples, real responses |
-| [`docs/payments.md`](docs/payments.md) · [`docs/mcp.md`](docs/mcp.md) · [`docs/alerts.md`](docs/alerts.md) · [`docs/errors.md`](docs/errors.md) | payments, MCP servers, webhooks, status codes and limits |
-| [`spec/`](spec) | `openapi.json`, `tools.json` (schemas), `llms.txt`, `agent-card.json` (A2A), `x402.json`, `mcp-servers.json` |
-| [`sdk/js`](sdk/js) · [`sdk/python`](sdk/python) | zero-dependency clients, one method per endpoint |
-| [`examples/`](examples) | curl, Node, Python, x402 payment, MCP configs, webhook verification, a pre-trade guard agent |
+- [`docs/endpoints/`](docs/endpoints/README.md): every endpoint: arguments, examples, real responses
+- [`docs/payments.md`](docs/payments.md) · [`docs/mcp.md`](docs/mcp.md) · [`docs/alerts.md`](docs/alerts.md) · [`docs/errors.md`](docs/errors.md): payments, MCP servers, webhooks, status codes and limits
+- [`spec/`](spec): `openapi.json`, `tools.json` (schemas), `llms.txt`, `agent-card.json` (A2A), `x402.json`, `mcp-servers.json`
+- [`sdk/js`](sdk/js) · [`sdk/python`](sdk/python): zero-dependency clients, one method per endpoint
+- [`examples/`](examples): curl, Node, Python, x402 payment, MCP configs, webhook verification, a pre-trade guard agent
 
 ## Discovery
 
